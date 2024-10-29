@@ -1,0 +1,12 @@
+body {
+    height: 100vh;
+    font-size: 24px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+div:not(#wt-sky-root) {
+    padding: 5px;
+    border: 1px solid gray;
+    margin-bottom: 10px;
+}

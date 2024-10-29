@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="counter">Счётчик: {{ counter }}</div>
+
+    <div id="bind-attribute">
+      <span v-bind:title="message">
+        Наведи на меня курсор на пару секунд, чтобы увидеть динамически
+        связанное значение title!
+      </span>
+    </div>
+
+    <div id="event-handling">
+      <p>{{ message }}</p>
+      <button v-on:click="reverseMessage">Перевернуть сообщение</button>
+    </div>
+
+    
+    <div id="two-way-binding">
+      <p>{{ message }}</p>
+      <input v-model="message" />
+    </div>
+
+
+    <div id="conditional-rendering">
+      <span v-if="seen">Сейчас меня видно</span>
+      <button v-on:click="changeVisible">{{seen ? 'hide': 'show'}}</button>
+    </div>
+
+
+    <div id="list-rendering">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
+    </div>
+    
+
+    <ol>
+      <!-- Создание экземпляра компонента todo-item -->
+      <todo-item></todo-item>
+    </ol>
+    
+    <script src="https://unpkg.com/vue"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
