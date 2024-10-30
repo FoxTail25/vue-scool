@@ -88,15 +88,35 @@ const ComponentsApp = {
         { id: 2, text: 'Whatever else humans are supposed to eat' }
       ]
     }
+  },
+  components: {
+    'todo-item': {
+      props: ['todo'],
+      // template: `<li>{{ "Это одна из задач" }}</li>`
+      template: `<li>{{ todo.text }}</li>`
+    }
   }
 }
 
 const app = Vue.createApp(ComponentsApp)
 
-app.component('todo-item', {
-  props: ['todo'],
-  template: `<li>{{ todo.text }}</li>`
-})
+// альтернативный способ регистрации компонентов в приложении app
 
-app.mount('#components-app')
-
+// app.component('todo-item', {
+  //   props: ['todo'],
+  //   template: `<li>{{ todo.text }}</li>`
+  // })
+  
+  app.mount('#components-app')
+  //***************************************************************************** */
+  
+  const vm_app = Vue.createApp({
+    data() {
+      return { count: 4 }
+    }
+  })
+  
+  const vm = vm_app.mount('#app')
+  
+  console.log(vm.count) // => 4
+  
