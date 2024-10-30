@@ -113,10 +113,18 @@ const app = Vue.createApp(ComponentsApp)
   const vm_app = Vue.createApp({
     data() {
       return { count: 4 }
-    }
+    },
+    // components: {
+      // 'comp': {
+        // template:'<div>Hi</div>',
+        // style: 'font-size: 32px;'
+      // }
+    // }
+    template:'{{count}}',
   })
   
-  const vm = vm_app.mount('#app')
+  const vm = vm_app.mount('#vm_app')
   
-  console.log(vm.count) // => 4
+  console.dir(vm.count) // => 4
+  // console.log(vm.template)
   
