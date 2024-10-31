@@ -138,6 +138,15 @@ const с_app = Vue.createApp(ComponentsApp)
         c: 'variable test'
       }
     },
+    methods: {
+      change_attr:function(){
+        if(this.a !== null) {
+          this.a = null
+        } else {
+          this.a = 'title'
+        }
+      }
+    }
     // template:'<a href="#" :[a]="dinamyc_attrr">link</a>',
 
   }

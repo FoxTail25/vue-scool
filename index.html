@@ -62,8 +62,12 @@
   <!-- <comp></comp> -->
 </div>
 <div id="v_attr">
-  <p v-bind:[a]="c">hello {{a}}</p>
-  <p>{{c}}</p>
+  <!-- 
+  динамические имена атрибутов
+   -->
+  <p :[a]="'1223142342'">{{c}}</p>
+  <p :[a]="c">При нажатии на кнопку ниже, атребут "title" исчезнет</p>
+  <button @click="change_attr">change_title_attr</button>
 </div>
     <script src="https://unpkg.com/vue"></script>
     <script src="script.js"></script>
