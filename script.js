@@ -98,7 +98,7 @@ const ComponentsApp = {
   }
 }
 
-const app = Vue.createApp(ComponentsApp)
+const с_app = Vue.createApp(ComponentsApp)
 
 // альтернативный способ регистрации компонентов в приложении app
 
@@ -107,7 +107,7 @@ const app = Vue.createApp(ComponentsApp)
   //   template: `<li>{{ todo.text }}</li>`
   // })
   
-  app.mount('#components-app')
+  с_app.mount('#components-app')
   //***************************************************************************** */
   
   const vm_app = Vue.createApp({
@@ -118,13 +118,28 @@ const app = Vue.createApp(ComponentsApp)
       // 'comp': {
         // template:'<div>Hi</div>',
         // style: 'font-size: 32px;'
-      // }
-    // }
-    template:'{{count}}',
-  })
+        // }
+        // }
+        template:'{{count}}',
+      })
+      
+  //***************************************************************************** */
   
   const vm = vm_app.mount('#vm_app')
   
   console.dir(vm.count) // => 4
   // console.log(vm.template)
+  //***************************************************************************** */
+  const dynamic_attr = {
+    data() {
+      return {
+        a:'title',
+        b: null,
+        c: 'variable test'
+      }
+    },
+    // template:'<a href="#" :[a]="dinamyc_attrr">link</a>',
+
+  }
+  Vue.createApp(dynamic_attr).mount('#v_attr')
   
