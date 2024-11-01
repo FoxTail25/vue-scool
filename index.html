@@ -79,16 +79,26 @@
 </div>
 
 <div id="interpolar">
+  <!-- 
+  Тескст записанный в текстовую переменную отображается как текст.
+  Ниже пример с переменной msg
+  -->
   <p>
     {{msg}}
   </p>
+  <!-- 
+    При добавлении дерективы v-once текст добавляется, но не изменяется.
+    -->
   <p v-once>
-    {{vonce}}
+    {{msg + ' ' + vonce}}
   </p>
+  <button @click="add_simbol">добавить "!"</button>
+  <!-- 
+  
+  -->
   <p v-html="rawHtml">
   
   </p>
-  <button @click="add_simbol">добавить "!"</button>
 </div>
 
 
