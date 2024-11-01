@@ -148,7 +148,26 @@ const с_app = Vue.createApp(ComponentsApp)
       }
     }
     // template:'<a href="#" :[a]="dinamyc_attrr">link</a>',
-
+    
   }
   Vue.createApp(dynamic_attr).mount('#v_attr')
   
+  //***************************************************************************** */
+  const interpolation = {
+    data(){
+      return {
+        msg:'Это текст записанный в переменную. Если изменить тексте в переменной msg, то он изменится и на странице HTML.',
+        vonce:"Директива v-once не отслеживает изменения переменной.",
+        vhtml:"директива V-HTML выводит данные переменной как HTML верстку",
+        rawHtml: '<span style="color: red">This should be red.</span>'
+      }
+    },
+    methods:{
+      add_simbol:function(){
+        this.msg = this.msg + '!'
+        this.vonce = this.vonce + '!'
+      }
+    }
+
+  }
+  Vue.createApp(interpolation).mount("#interpolar")

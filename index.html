@@ -69,6 +69,21 @@
   <p :[a]="c">При нажатии на кнопку ниже, атребут "title" исчезнет</p>
   <button @click="change_attr">change_title_attr</button>
 </div>
+
+<div id="interpolar">
+  <p>
+    {{msg}}
+  </p>
+  <p v-once>
+    {{vonce}}
+  </p>
+  <p v-html="rawHtml">
+  
+  </p>
+  <button @click="add_simbol">добавить "!"</button>
+</div>
+
+
     <script src="https://unpkg.com/vue"></script>
     <script src="script.js"></script>
   </body>
