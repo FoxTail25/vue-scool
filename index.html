@@ -21,86 +21,84 @@
       <button v-on:click="reverseMessage">Перевернуть сообщение</button>
     </div>
 
-    
     <div id="two-way-binding">
       <p>{{ message }}</p>
       <input v-model="message" />
     </div>
-
 
     <div id="conditional-rendering">
       <span v-if="seen">Сейчас меня видно</span>
       <button v-on:click="changeVisible">{{seen ? 'hide': 'show'}}</button>
     </div>
 
-
     <div id="list-rendering">
       <ol>
-        <li v-for="todo in todos">
-          {{ todo.text }}
-        </li>
+        <li v-for="todo in todos">{{ todo.text }}</li>
       </ol>
     </div>
-    
 
-<div id="components-app" class="demo">
-  <ol>
-    <!--
+    <div id="components-app" class="demo">
+      <ol>
+        <!--
       Now we provide each todo-item with the todo object
       it's representing, so that its content can be dynamic.
       We also need to provide each component with a "key",
       which will be explained later.
     -->
-    <todo-item 
-    v-for="item in groceryList" 
-    v-bind:todo="item" 
-    v-bind:key="item.id">
-  </todo-item>
-  </ol>
-</div>
-<div id="vm_app">
-  <!-- <comp></comp> -->
-</div>
-<div id="v_attr">
-  <!-- 
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind:key="item.id"
+        >
+        </todo-item>
+      </ol>
+    </div>
+    <div id="vm_app">
+      <!-- <comp></comp> -->
+    </div>
+    <div id="v_attr">
+      <!-- 
   динамические имена атрибутов
    -->
-  <p :[a]="'1223142342'">{{c}}</p>
-  <p :[a]="c">При нажатии на кнопку ниже, атребут "title" исчезнет</p>
-  <button @click="change_attr">change_title_attr</button>
+      <p :[a]="'1223142342'">{{c}}</p>
+      <p :[a]="c">При нажатии на кнопку ниже, атребут "title" исчезнет</p>
+      <button @click="change_attr">change_title_attr</button>
 
-  <!-- 
+      <!-- 
   Вычисляемые свойства
   
   Разница между методом (methods:{}) и вычисляемым свойсвтом (computed:{}) заключается в том, что вычисляемое свойсвто кэширует свои данные и вычисляет их только если изменилась одна из зависимостей.
   -->
+    </div>
 
-  
-</div>
-
-<div id="interpolar">
-  <!-- 
+    <div id="interpolar">
+      <!-- 
   Тескст записанный в текстовую переменную отображается как текст.
   Ниже пример с переменной msg
   -->
-  <p>
-    {{msg}}
-  </p>
-  <!-- 
+      <p>{{msg}}</p>
+      <!-- 
     При добавлении дерективы v-once текст добавляется, но не изменяется.
     -->
-  <p v-once>
-    {{msg + ' ' + vonce}}
-  </p>
-  <button @click="add_simbol">добавить "!"</button>
-  <!-- 
-  
+      <p v-once>{{msg + ' ' + vonce}}</p>
+      <button @click="add_simbol">добавить "!"</button>
+      <!-- 
+  Для того что бы отрисовать html разметку, используется директива v-html. В неё передаётся переменная, содержащая в себе html разметку.
   -->
-  <p v-html="rawHtml">
-  
-  </p>
-</div>
+      <p v-html="rawHtml"></p>
+    </div>
 
+    <div id="watchers">
+      <div>
+        <p>first name: {{firstName}}</p>
+        <input v-model="firstName" />
+      </div>
+      <div>
+        <p>last name: {{lastName}}</p>
+        <input v-model="lastName" />
+      </div>
+      <p>fullName: {{fullName}}</p>
+    </div>
 
     <script src="https://unpkg.com/vue"></script>
     <script src="script.js"></script>

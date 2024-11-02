@@ -152,14 +152,14 @@ const с_app = Vue.createApp(ComponentsApp)
   }
   Vue.createApp(dynamic_attr).mount('#v_attr')
   
-  //***************************************************************************** */
+//***************************************************************************** */
   const interpolation = {
     data(){
       return {
         msg:'Это текст записанный в переменную. Если изменить тексте в переменной msg, то он изменится и на странице HTML.',
         vonce:"Директива v-once не отслеживает изменения переменной.",
         vhtml:"директива V-HTML выводит данные переменной как HTML верстку",
-        rawHtml: '<span style="color: red">This should be red.</span>'
+        rawHtml: '<span style="color: red; font-size:30px">Это html разметка обёрнутая в span</span>'
       }
     },
     methods:{
@@ -171,3 +171,25 @@ const с_app = Vue.createApp(ComponentsApp)
 
   }
   Vue.createApp(interpolation).mount("#interpolar")
+
+//***************************************************************************** */
+
+const watchers = {
+  data(){
+    return{
+      firstName: 'John',
+      lastName: 'Dou',
+      fullName:'',
+    }
+  },
+  watch:{
+    firstName(val){
+      this.fullName = val + " " + this.lastName
+    },
+    lastName(val){
+      this.fullName = this.firstName + " " + val
+    }
+  }
+}
+
+Vue.createApp(watchers).mount('#watchers')
