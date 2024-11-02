@@ -173,10 +173,46 @@ const с_app = Vue.createApp(ComponentsApp)
   Vue.createApp(interpolation).mount("#interpolar")
 
 //***************************************************************************** */
+// ___Реативные изменения данных___
+// Решение 1) Инлайн вычислиния
+// В данном примере вычисление fullName происходит в самом html шаблоне.
+const inlinecalc = {
+  data() {
+    return{
+      h2:'<h2 style="font-decoration:underline">InLineCalc</h2>',
+      firstName: 'John',
+      lastName: 'Dou', 
+    }
+  }
+}
+Vue.createApp(inlinecalc).mount('#inlinecalc')
+///////////////////////////////////////////////////////////////////////////////////
+// Решение 2) methods
+///////////////////////////////////////////////////////////////////////////////////
+
+const metod = {
+  data() {
+    return {
+      h2:'<h2 style="font-decoration:underline">Метод</h2>',
+      firstName: 'John',
+      lastName: 'Dou', 
+    }
+  },
+  methods:{
+    getFullName:function(){
+      return this.firstName + ' ' + this.lastName
+    }
+  }
+}
+Vue.createApp(metod).mount('#metod');
+///////////////////////////////////////////////////////////////////////////////////
+// Решение 3) watch
+///////////////////////////////////////////////////////////////////////////////////
 
 const watchers = {
   data(){
     return{
+      h2:'<h2 style="font-decoration:underline">Watch</h2>',
       firstName: 'John',
       lastName: 'Dou',
       fullName:'',
@@ -193,3 +229,57 @@ const watchers = {
 }
 
 Vue.createApp(watchers).mount('#watchers')
+
+///////////////////////////////////////////////////////////////////////////////////
+// Решение 4) computed
+///////////////////////////////////////////////////////////////////////////////////
+
+const comp = {
+  data() {
+    return {
+      h2:'<h2 style="font-decoration:underline">Computed</h2>',
+      firstName: 'John',
+      lastName: 'Dou', 
+    }
+  },
+  computed:{
+    getFullName:function(){
+      return this.firstName + ' ' + this.lastName
+    }
+  }
+}
+Vue.createApp(comp).mount('#comput');
+////////////////////////////////////////////////////////////////////////
+
+//***************************************************************************** */
+// Class & style
+//***************************************************************************** */
+// Динамическая привязка класса
+const styleClass = {
+  data() {
+    return{
+      isActive:true,
+      test:'color'
+    }
+  },
+  methods:{
+    change_isActive:function(){
+      this.isActive = !this.isActive
+    }
+  }
+}
+Vue.createApp(styleClass).mount('#style-class');
+
+// объект с классами//////////////////////////////////
+const styleClass2 = {
+  data() {
+    return{
+      classObject: {
+        colorBlue:true,
+        textUnderline :true,
+      }
+    }
+  },
+
+}
+Vue.createApp(styleClass2).mount('#style-class2');

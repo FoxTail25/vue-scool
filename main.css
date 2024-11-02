@@ -10,3 +10,17 @@ div:not(#wt-sky-root) {
     border: 1px solid gray;
     margin-bottom: 10px;
 }
+section {
+    border: 2px solid red;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+.colorRed {
+    color:red;
+}
+.colorBlue {
+    color:Blue;
+}
+.textUnderline {
+    text-decoration: underline;
+}
