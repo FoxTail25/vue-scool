@@ -93,10 +93,10 @@
   Решение первое (простое, но сложночитаемое. Считается плохой практикой)
   -->
   <section>
-
+<p> Есть несколько вариантов решений по реактивному отображению изменяющихся данных</p>
     <div id="inlinecalc">
       <span v-html="h2"></span>
-
+<p> Решение первое (простое, но сложночитаемое. Считается плохой практикой)</p>
       <p>first name: {{firstName}}</p>
       <input v-model="firstName" />
 
@@ -109,7 +109,7 @@
       -->
     <div id="metod">
       <span v-html="h2"></span>
-
+<p>Решение второе (правильный подход, с использованием methods. особенность = НЕКЭШИРУЕТСЯ)</p>
       <p>first name: {{firstName}}</p>
       <input v-model="firstName" />
 
@@ -124,6 +124,7 @@
 
     <div id="watchers">
       <span v-html="h2"></span>
+      <p>Решение третье (правильный подход, с использованием watch. особенность = НЕКЭШИРУЕТСЯ, fullName обновляется только после изменения firstName или lastName</p>
       <div>
         <p>first name: {{firstName}}</p>
         <input v-model="firstName" />
@@ -140,7 +141,7 @@
       -->
     <div id="comput">
       <span v-html="h2"></span>
-
+<p>Решение четвертое (правильный подход, с использованием computed. особенность = результат вычислений КЭШИРУЕТСЯ!!)</p>
       <p>first name: {{firstName}}</p>
       <input v-model="firstName" />
 
@@ -154,14 +155,22 @@
   
     <div>Стилизация Vue</div>
     <!-- 
-      Работа с классами и стилями
       -->
+     <p>
+       Работа с классами и стилями
+     </p>
   
     <div id="style-class">
-      <!-- 
-      Нижеприведенный синтаксис означает что наличие класса colorRed, будет определяться истинностью переменной isActive
-      -->
-      <p :class="{colorRed:isActive}"> {{ test }} </p>
+      <code>
+        <span>
+          <</span>p :class="{colorRed:isActive}"<span>></span> color
+      <span><</span>/p<span>></span>
+      </code>
+      <p>
+
+        вышеприведенный синтаксис означает что наличие класса colorRed, будет определяться истинностью переменной isActive
+      </p>
+        <p :class="{colorRed:isActive}"> {{ test }} </p>
       <button @click="change_isActive">change_isActive</button>
     </div>
     <div id="style-class2">
