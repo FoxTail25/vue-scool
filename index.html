@@ -154,17 +154,16 @@
   <section>
   
     <div>Стилизация Vue</div>
-    <!-- 
-      -->
-     <p>
+    
+     <h2>
        Работа с классами и стилями
-     </p>
+     </h2>
   
     <div id="style-class">
       <code>
         <span>
           <</span>p :class="{colorRed:isActive}"<span>></span> color
-      <span><</span>/p<span>></span>
+      <span><</span>/p <span>></span>
       </code>
       <p>
 
@@ -174,13 +173,76 @@
       <button @click="change_isActive">change_isActive</button>
     </div>
     <div id="style-class2">
-      <!-- 
-      Можно указать объект в котором будут перечисленны классы
-      -->
+      <p>
+        Можно указать объект в котором будут перечисленны классы
+      </p>
+      <p>
+        <code>
+          <span>
+            <</span>p :class="classObject"<span>></span> color
+        <span><</span>/p <span>></span>
+        </code>
+      </p>
       <p :class="classObject"> некий текст </p>
     </div>
-  
+
+    <div id="style-class3">
+      Можно использовать обычные классы вместе с директивой v-bind:
+      <code>
+        <span>
+        <</span>p class='colorRed' :class="{textUnderline: isActive}"<span>></span> color
+        <span><</span>/p <span>></span>
+      </code>
+      <p class='colorRed' :class="{textUnderline: isActive}"> hello </p>
+    </div>
+      
   </section>
+  <section>
+    <h2>
+      Условная отрисовка
+    </h2>
+    <div id="ifElse">
+      <p v-if="visible">
+        сейчас этот блок видно
+      </p>
+      <p v-else>
+        а сейчас нет
+      </p>
+      <button @click="change_visible">
+        change_visible
+      </button>
+    </div>
+    <p>
+      Так же есть директива v-if-else которая используется как промежуточное звено между v-if и v-else
+    </p>
+  </section>
+  <section>
+    <h2>
+      Отрисовка списков
+    </h2>
+    <div id="vfor">
+      <p>
+        Для отрисовки списков используется директива v-for. С её помощью можно отисовывать как массивы, так и объекты.
+      </p>
+
+        <template v-for="(elem, index) in someArr">
+          <p>
+            index:{{index}} message:{{elem.message}} 
+          </p>
+        </template>
+        
+    </div>
+  </section>
+  <section>
+    <h2>Компонеты</h2>
+    <div id="component1">
+      <p>Главное не забывать что app.component - это функуция! В которую нужно передать название компонента и объект содержащий все свойства компонента</p>
+<button-counter title="counter_1"></button-counter>
+<button-counter title="counter_2"></button-counter>
+<button-counter title="counter_3"></button-counter>
+    </div>
+  </section>
+
 
 
 
@@ -188,12 +250,5 @@
 
     <script src="https://unpkg.com/vue"></script>
     <script src="script.js"></script>
-  </section>
-
-
-
-
-
 </body>
-
 </html>
